@@ -6,7 +6,7 @@
 #banner-header {
   font-family: sans-serif;;
   font-size: 100px;
-  padding-top: 20px;
+  padding-top: 80px;
 }
 
 #banner {
@@ -15,9 +15,11 @@
 
 #banner::before {
   content: "";
-  background-image: url('code.jpg');
-  height: 200px;
-  background-size: contain;
+  background-image: url('dapper_codes.jpg');
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: .4;
   position: absolute;
   top: 0;
