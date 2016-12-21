@@ -1,0 +1,1 @@
+.center{text-align:center;margin:auto}#banner-header{font-family:sans-serif;font-size:100px;padding-top:20px}#banner{z-index:1}#banner::before{content:"";background-image:url("code.jpg");height:200px;background-size:contain;opacity:.4;position:absolute;top:0;left:0;bottom:0;right:0;z-index:-1}
