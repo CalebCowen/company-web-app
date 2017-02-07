@@ -45,6 +45,12 @@
   font-size: 30px;
 }
 
+#email a{
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 body {
   background-color: #a1a5a8;
 }
