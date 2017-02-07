@@ -3,9 +3,8 @@
   margin: auto;
 }
 
-.project-1 {
-  margin-left: 20px;
-  padding-bottom: 100px;
+.hidden {
+  display: none;
 }
 
 #banner-header {
@@ -21,7 +20,7 @@
 #banner::before {
   content: "";
   background-image: url('dapper_codes.jpg');
-  height: 600px;
+  height: 1200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,20 +35,24 @@
 
 #description {
   text-align: justify;
-  padding-top: 400px;
+  padding-top: 160px;
   padding-left: 130px;
   padding-right: 130px;
-  padding-bottom: 130px;
   margin: auto;
   font-family: monospace;
   font-size: 30px;
 }
 
-#email a{
+#real_email a{
   color: black;
   font-size: 20px;
   text-decoration: none;
 }
+
+#real_email {
+  margin-top: 100px;
+}
+
 
 body {
   background-color: #a1a5a8;
