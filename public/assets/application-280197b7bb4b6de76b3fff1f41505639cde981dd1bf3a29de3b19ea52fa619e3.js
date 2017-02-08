@@ -12199,6 +12199,9 @@ $(document).ready(function(){
   .delay(6000)
   .animate({'marginRight': '-=800', 'marginLeft': '+=800'}, 1500);
 
+  $('#definition').delay(8000)
+  .fadeIn(1500)
+
   $fake_email.delay(6000)
   .animate({'marginTop': '+=600'}, 1300)
   .fadeOut(800)
