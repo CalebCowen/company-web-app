@@ -12203,7 +12203,7 @@ $(document).ready(function(){
   .animate({'marginTop': '+=600'}, 1300)
   .fadeOut(800)
 
-  $image.delay(500)
+  $image.delay(300)
   .fadeIn(2000)
   .delay(1000)
   .fadeOut(4000);
