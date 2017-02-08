@@ -35,7 +35,7 @@
 
 #description {
   text-align: justify;
-  padding-top: 160px;
+  padding-top: 140px;
   padding-left: 130px;
   padding-right: 130px;
   margin: auto;
@@ -60,6 +60,11 @@
   font-family: sans-serif;
 }
 
+#definition {
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: sans-serif;
+}
 
 body {
   background-color: #a1a5a8;
