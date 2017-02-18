@@ -40,7 +40,7 @@ $(document).ready(function(){
   $description.delay(7500)
   .fadeIn(3500)
 
-  $real_email.delay(7000)
-  .fadeIn(2000)
+  $real_email.delay(7500)
+  .fadeIn(3000)
 
 });
