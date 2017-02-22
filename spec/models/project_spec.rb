@@ -14,16 +14,16 @@ RSpec.describe Project, type: :model do
       expect(project).not_to be_valid
     end
 
-    it 'is not valid without a url' do
-      project = Project.create(name: 'Project', description: 'This is a project')
-
-      expect(project).not_to be_valid
-    end
-
     it 'is valid with name, description, and url' do
       project = create(:project)
 
       expect(project).to be_valid
+    end
+
+    it 'is created with a status of pending' do
+      project = create(:project)
+
+      expect(project.status).to eq 'pending'
     end
   end
 end
