@@ -9,7 +9,7 @@ RSpec.feature 'user sees payment page' do
 
       expect(current_path).to eq new_payment_path
 
-      find_field 'payment[project_name]'
+      find_field 'payment[project]'
       find_field 'payment[amount]'
 
       expect(page).to have_button 'Make payment'
