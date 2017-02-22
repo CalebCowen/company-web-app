@@ -1,0 +1,7 @@
+<div class="center" id="payment-form">
+  <%= form_for(@payment) do |f| %>
+  <%= f.text_field :project_id, placeholder: "Project Id" %>
+  <%= f.text_field :amount, placeholder: "Payment Amount" %>
+  <%= f.submit "Make payment" %>
+  <% end %>
+</div>
