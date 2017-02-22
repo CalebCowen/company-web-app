@@ -3,4 +3,6 @@ class Project < ApplicationRecord
   validates :description, presence: true
 
   enum status: %w(pending accepted completed)
+
+  has_many :payments
 end
