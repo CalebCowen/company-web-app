@@ -42,5 +42,4 @@ $(document).ready(function(){
 
   $real_email.delay(7500)
   .fadeIn(3000)
-
 });

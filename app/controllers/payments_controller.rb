@@ -1,22 +1,26 @@
 class PaymentsController < ApplicationController
 
-  def new
-    @payment = Payment.new
-  end
-
   def create
-    project = Project.find_by(name: params[:payment][:project].downcase)
-    if project
-      payment = project.payments.create(payment_params)
-      flash[:success] = "Payment succcesful"
-    else
-      flash[:error] = "There is no project with that name"
-      redirect_to new_payment_path
-    end
-  end
+    amount = (params[:amount].to_f * 100).to_i
+    project = Project.find_by(name: params[:project_name].downcase)
+    if project && project.amount_owed >= amount
+      project.payments.create(amount: amount)
+      project.update_attributes(amount_owed: project.amount_owed - amount)
+      token = params[:stripeToken]
 
-  private
-    def payment_params
-      params.require(:payment).permit(:amount)
+      charge = Stripe::Charge.create(
+      :amount => amount,
+      :currency => "usd",
+      :description => "Payment for #{params[:project_name]}",
+      :source => token
+      )
+
+      flash.now[:success] = "Payment succcesful"
+    elsif !project
+      flash.now[:error] = "There is no project with that name"
+    elsif project.amount_owed < amount
+      flash.now[:error] = "That payment amount is more than you owe!"
     end
+
+  end
 end

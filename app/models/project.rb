@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   validates :contact_email, presence: true
   before_create :normalize_name
 
-  enum status: %w(pending accepted completed)
+  enum status: %w(in_progress completed)
 
   has_many :payments
 

@@ -26,10 +26,10 @@ RSpec.describe Project, type: :model do
       expect(project).to be_valid
     end
 
-    it 'is created with a status of pending' do
+    it 'is created with a status of in_progress' do
       project = create(:project)
 
-      expect(project.status).to eq 'pending'
+      expect(project.status).to eq 'in_progress'
     end
   end
 end

@@ -2,5 +2,5 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :payments, only: [:new, :create]
+  resources :payments, only: [:create]
 end

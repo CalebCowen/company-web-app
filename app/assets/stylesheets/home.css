@@ -66,6 +66,30 @@
   font-family: sans-serif;
 }
 
+#payment-form {
+  display: none;
+  position: fixed;
+  height:300px;
+  width:600px;
+  background:#FFFFFF;
+  left: 300px;
+  top: 150px;
+  z-index:100;
+}
+
+#payment-button {
+  background:none!important;
+  border:none;
+  padding:0!important;
+  font-size: 30px;
+  font-family: sans-serif;
+  cursor:pointer;
+}
+
+#payment-button:hover{
+  text-decoration:underline;
+}
+
 body {
   background-color: #a1a5a8;
 }
