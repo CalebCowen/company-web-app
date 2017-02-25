@@ -77,13 +77,17 @@
   z-index:100;
 }
 
-#payment-button {
-  background:none!important;
-  border:none;
-  padding:0!important;
-  font-size: 30px;
-  font-family: sans-serif;
-  cursor:pointer;
+#payment-form {
+  display: none;
+  position: absolute;
+  height:300px;
+  width:600px;
+  background:#FFFFFF;
+  left: 50%;
+  top: 50%;
+  margin-top: -150px;
+  margin-left: -300px;
+  z-index:100;
 }
 
 #payment-button:hover{
