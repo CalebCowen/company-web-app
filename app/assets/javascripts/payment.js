@@ -42,13 +42,30 @@ function stripeResponseHandler(status, response) {
 
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
-
+    var validation = validateForm($form);
     // Submit the form:
-    $form.get(0).submit();
-    if ($('.flash-success').length) {
-      $('#payment-form').hide();
-    } else if ($('.flash-error').length) {
-      console.log($('.flash-error'))
+    if (validation) {
+      $form.get(0).submit();
+      $form.delay(3000)
+      .hide()
+    } else {
+      $form.find('.submit').prop('disabled', false);
     }
   }
 };
+
+function validateForm(form) {
+  var project_name = form.find('[name="project_name"]').val()
+  var amount = form.find('[name="amount"]').val()
+  var project = $.get('/api/v1/projects/'+project_name)
+  if (!project) {
+    form.find('.payment-errors').text("There is no project with that name.");
+    return false;
+  } else if (amount > project.amount_owed) {
+    form.find('.payment-errors').text("That payment amount is more than you owe!");
+    return false;
+  } else {
+    form.find('.payment-success').text(" Successful!");
+    return true;
+  }
+}
