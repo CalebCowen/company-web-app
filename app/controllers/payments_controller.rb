@@ -16,6 +16,6 @@ class PaymentsController < ApplicationController
     rescue Stripe::CardError => e
       body = e.json_body
       error = body[:error]
-      DeclineMailer.decline_email(project, error).deliver_now
+      DeclineMailer.decline_email(project, error).deliver_later
   end
 end
