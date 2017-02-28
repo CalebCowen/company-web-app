@@ -1,12 +1,23 @@
 $(document).ready(function(){
 
   showPaymentForm();
-  submitPayment()
-})
+  submitPayment();
+  $('.close').on('click', closeForm);
+
+
+  $('.card').on('click', function() {
+    $('.card').removeClass('active');
+    $(this).addClass('active');
+    $('.form').stop().slideUp();
+    $('.form').delay(300).slideDown();
+  });
+});
 
 function showPaymentForm(){
   $( "#payment-button" ).on( "click", function() {
-    $('#payment-form').show();
+    $('.payment-container').show()
+    .animate({'marginTop': '-=1100px'}, 900);
+    $('.blur').css("-webkit-animation", "blur ease 2s 1 normal both");
   });
 }
 
@@ -46,8 +57,6 @@ function stripeResponseHandler(status, response) {
     // Submit the form:
     if (validation) {
       $form.get(0).submit();
-      $form.delay(3000)
-      .hide()
     } else {
       $form.find('.submit').prop('disabled', false);
     }
@@ -65,7 +74,14 @@ function validateForm(form) {
     form.find('.payment-errors').text("That payment amount is more than you owe!");
     return false;
   } else {
-    form.find('.payment-success').text(" Successful!");
+    form.find('.payment-success').text("Transaction has been submitted.");
     return true;
   }
+}
+
+function closeForm() {
+  $('#payment-form').get(0).reset();
+  $('#payment-form').find('.submit').prop('disabled', false);
+  $('.payment-container').animate({'marginTop': '+=1100px'}, 900);
+  $('.blur').css("-webkit-animation", "deblur ease 2s 1 normal both");
 }
