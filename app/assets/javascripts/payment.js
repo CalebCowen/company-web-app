@@ -15,9 +15,8 @@ $(document).ready(function(){
 
 function showPaymentForm(){
   $( "#payment-button" ).on( "click", function() {
-    $('.payment-container').show()
-    .animate({'marginTop': '-=1100px'}, 900);
-    $('.blur').css("-webkit-animation", "blur ease 2s 1 normal both");
+    $('.payment-container').show().animate({'marginTop': '-=1100px'}, 900);
+    $('.blur').toggleClass('blur-active');
   });
 }
 
@@ -82,6 +81,8 @@ function validateForm(form) {
 function closeForm() {
   $('#payment-form').get(0).reset();
   $('#payment-form').find('.submit').prop('disabled', false);
-  $('.payment-container').animate({'marginTop': '+=1100px'}, 900);
-  $('.blur').css("-webkit-animation", "deblur ease 2s 1 normal both");
+  $('.blur').toggleClass('blur-active');
+  $('.payment-container').animate({'marginTop': '+=1100px'}, 900, function() {
+    $('.payment-container').hide();
+  });
 }

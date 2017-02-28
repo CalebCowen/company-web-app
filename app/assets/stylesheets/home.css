@@ -43,11 +43,20 @@
   left: 0;
   bottom: 0;
   right: 0;
-  -webkit-animation: fadein 2s ease 1s 1 normal both, blur 5s ease 3s 1 normal both;
-  animation: fadein 2s ease 1s 1 normal both, blur 5s ease 3s 1 normal both;
+  -webkit-animation: fadein 2s ease 1s 1 normal both, slight-blur 5s ease 3s 1 normal both;
+  animation: fadein 2s ease 1s 1 normal both, slight-blur 5s ease 3s 1 normal both;
   z-index: -1;
 }
 
+.blur {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.blur-active {
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+}
 
 #description {
   text-align: justify;
@@ -109,45 +118,24 @@ body {
   100% { opacity: .3; }
 }
 
-@-webkit-keyframes blur {
+@-webkit-keyframes slight-blur {
   0% {
     -webkit-filter: blur(0);
     filter: blur(0);
   }
   100% {
-    -webkit-filter: blur(30px);
-    filter: blur(30px);
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
   }
 }
 
-@keyframes blur {
+@keyframes slight-blur {
   0% {
     -webkit-filter: blur(0);
     filter: blur(0);
   }
   100% {
-    -webkit-filter: blur(30px);
-    filter: blur(30px);
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
   }
-
-  @-webkit-keyframes deblur {
-    100% {
-      -webkit-filter: blur(0);
-      filter: blur(0);
-    }
-    0% {
-      -webkit-filter: blur(30px);
-      filter: blur(30px);
-    }
-  }
-
-  @keyframes deblur {
-    100% {
-      -webkit-filter: blur(0);
-      filter: blur(0);
-    }
-    0% {
-      -webkit-filter: blur(30px);
-      filter: blur(30px);
-    }
-  }
+}
