@@ -33,7 +33,7 @@
 #banner::before {
   content: "";
   background-image: url('dapper_codes.jpg');
-  height: 1200px;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -51,6 +51,8 @@
 .blur {
   -webkit-transition: all 2s ease;
   transition: all 2s ease;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
 }
 
 .blur-active {

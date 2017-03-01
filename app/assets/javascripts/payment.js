@@ -65,17 +65,18 @@ function stripeResponseHandler(status, response) {
 function validateForm(form) {
   var project_name = form.find('[name="project_name"]').val()
   var amount = form.find('[name="amount"]').val()
-  var project = $.get('/api/v1/projects/'+project_name)
-  if (!project) {
-    form.find('.payment-errors').text("There is no project with that name.");
-    return false;
-  } else if (amount > project.amount_owed) {
-    form.find('.payment-errors').text("That payment amount is more than you owe!");
-    return false;
-  } else {
-    form.find('.payment-success').text("Transaction has been submitted.");
-    return true;
-  }
+  $.get('/api/v1/projects/'+project_name, function(response) {
+    if (!response) {
+      form.find('.payment-errors').text("There is no project with that name.");
+      return false;
+    } else if (amount > response.amount_owed) {
+      form.find('.payment-errors').text("That payment amount is more than you owe!");
+      return false;
+    } else {
+      form.find('.payment-success').text("Transaction has been submitted.");
+      return true;
+    }
+  })
 }
 
 function closeForm() {
