@@ -1,0 +1,384 @@
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+#banner-header {
+  font-family: sans-serif;;
+  font-size: 100px;
+  padding-top: 200px;
+}
+
+#banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#banner::before {
+  content: "";
+  background-image: url('dapper_codes.jpg');
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  opacity: .3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-animation: fadein 2s ease 1s 1 normal both, slight-blur 5s ease 3s 1 normal both;
+  animation: fadein 2s ease 1s 1 normal both, slight-blur 5s ease 3s 1 normal both;
+  z-index: -1;
+}
+
+.blur {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+
+.blur-active {
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+}
+
+#description {
+  text-align: justify;
+  padding-top: 138px;
+  padding-left: 130px;
+  padding-right: 130px;
+  margin: auto;
+  font-family: monospace;
+  font-size: 30px;
+}
+
+#real_email a{
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+#fake_email h1{
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+#real_email {
+  margin-top: 95px;
+  font-family: sans-serif;
+}
+
+#definition {
+  padding-top: 20px;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+#payment-button {
+  background:none!important;
+  border:none;
+  padding:0!important;
+  font-size: 30px;
+  font-family: sans-serif;
+  cursor:pointer;
+}
+
+#payment-button:hover{
+  text-decoration:underline;
+}
+
+body {
+  background-color: #a1a5a8;
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: .3; }
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: .3; }
+}
+
+@-webkit-keyframes slight-blur {
+  0% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+  100% {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+  }
+}
+
+@keyframes slight-blur {
+  0% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+  100% {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+  }
+}
+.close {
+  cursor:pointer;
+  text-align: right;
+  padding-right: 7px;
+  padding-top: 5px;
+}
+
+.payment-container {
+  display: block;
+  width: 480px;
+  margin: 40px auto;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 800px;
+  margin-left: -240px;
+  z-index:100;
+}
+
+.modal {
+  background: #FFF;
+  -webkit-border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -moz-background-clip: padding;
+  border-radius: 3px;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+.modal .form .form-row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 0 0 30px;
+}
+.modal .form .form-row:last-child {
+  margin: 0;
+}
+.modal .form .form-row:last-child .input-group {
+  width: 60%;
+  margin: 0 15px 0 0;
+}
+.modal .form .form-row:last-child .input-group:last-child {
+  width: 40%;
+  margin: 0 0 0 15px;
+}
+.modal .form .form-row .split-field-left {
+  width: 75%;
+  margin: 0 15px 0 0;
+}
+.modal .form .form-row .split-field-right {
+  width: 25%;
+  margin: 0 0 0 15px;
+}
+.modal .form .input-group {
+  width: 100%;
+}
+.modal .form label {
+  display: block;
+  width: 100%;
+  margin: 0 0 10px;
+  color: #00A6EA;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.modal .form input {
+  outline: none;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -moz-background-clip: padding;
+  border-radius: 3px;
+  background-clip: padding-box;
+  padding: 15px;
+  color: #999;
+  font-size: 12px;
+  font-weight: 700;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.modal .header {
+  background: #00A6EA;
+  padding: 30px;
+  text-align: center;
+}
+.modal .header h1 {
+  margin: 0 0 15px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.modal .header .card-type {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.modal .header .card-type .card {
+  position: relative;
+  width: 25%;
+  min-width: 54px;
+  text-align: center;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+.modal .header .card-type .card.active {
+  -webkit-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -ms-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.modal .header .card-type .card.active:after {
+  display: block;
+  bottom: -30px;
+}
+.modal .header .card-type .card:after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  margin: 0 0 0 -10px;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid #FFF;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.modal .header .card-type .card img {
+  display: inline-block;
+}
+.modal .header .card-type li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.modal .content {
+  padding: 30px;
+}
+.modal .footer .button {
+  outline: none;
+  display: block;
+  background: green;
+  width: 100%;
+  border: 0;
+  padding: 20px 30px;
+  color: #FFF;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.info {
+  width: 300px;
+  margin: 50px auto;
+  text-align: center;
+}
+.info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 400;
+  color: #333;
+}
+.info span {
+  color: #666;
+  font-size: 12px;
+}
+.info span a {
+  color: #000;
+  text-decoration: none;
+}
+.info span .fa {
+  color: #00A6EA;
+}
+
+.modal .footer .disabled-button {
+  background: grey;
+}
+
+.payment-success {
+  text-align: center;
+  color: green;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: helvetica;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
