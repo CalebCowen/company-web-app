@@ -6,12 +6,12 @@ $(document).ready(function(){
   var $real_email = $('#real_email')
   var $fake_email = $('#fake_email')
 
-  $header.delay(3000)
+  $header.delay(3300)
   .fadeIn(2000)
   .delay(1000)
   .animate({'marginTop': '-=200px'}, 1500);
 
-  $contact.delay(3000)
+  $contact.delay(3300)
   .fadeIn(2000)
   .delay(800)
   .animate({'marginTop': '+=90px'}, 1200)
@@ -32,15 +32,9 @@ $(document).ready(function(){
   .animate({'marginTop': '+=600'}, 1300)
   .fadeOut(800)
 
-  $image.delay(300)
-  .fadeIn(2000)
-  .delay(1000)
-  .fadeOut(4000);
-
   $description.delay(7500)
   .fadeIn(3500)
 
   $real_email.delay(7500)
   .fadeIn(3000)
-
 });

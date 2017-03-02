@@ -1,25 +1,31 @@
 <div class="container hidden" id="banner">
 </div>
-<h1 class="center hidden" id="banner-header">Dapper Codes</h1>
+<div class="blur">
+  <h1 class="center hidden" id="banner-header">Dapper Codes</h1>
 
-<section class="center hidden" id="contact">
-  <div class="center" id="links">
-    <a id="github" href="https://github.com/CalebCowen" target="_blank"><img src="/assets/github_logo.png" height="50" /></a>
-    <a id="linkedin" href="https://linkedin.com/in/calebcowen" target="_blank"><img src="/assets/linkedin_logo.svg" height="50" /></a>
-  </div>
-  <div class="center" id="fake_email">
-    <p style="font-family: sans-serif">Email me at:</p>
-    <h1>dappercodes@gmail.com</h1>
-  </div>
-</section>
+  <section class="center hidden" id="contact">
+    <div class="center" id="links">
+      <a id="github" href="https://github.com/CalebCowen" target="_blank"><img src="/assets/github_logo.png" height="50" /></a>
+      <a id="linkedin" href="https://linkedin.com/in/calebcowen" target="_blank"><img src="/assets/linkedin_logo.svg" height="50" /></a>
+    </div>
+    <div class="center" id="fake_email">
+      <p style="font-family: sans-serif">Email us at:</p>
+      <h1>dappercodes@gmail.com</h1>
+    </div>
+  </section>
 
-<div class="center hidden" id="definition">
-  <p>[<strong>dap</strong>-er] adjective </p>
+  <div class="center hidden" id="definition">
+    <p>[<strong>dap</strong>-er] adjective </p>
+  </div>
+
+  <p class="center hidden" id="description">Dapper Codes was created to move beyond the functional, to the clean, the elegant, and the exceptional. Dapper Codes encourages you to think beyond the mundane and normal and strive to stand out, as we motivate ourselves to do the same. We write clean, polished code to create applications tailored to fit your needs.</p>
+
+
+  <div class="center hidden" id="real_email">
+    <button type="button" id="payment-button">Make a Payment</button>
+    <p>Email us at:</p>
+    <h1><a href="mailto:calebcowen@gmail.com">dappercodes@gmail.com</a></h1>
+  </div>
 </div>
 
-<p class="center hidden" id="description">Dapper Codes was created to move beyond the functional, to the clean, the elegant, and the exceptional. Dapper Codes encourages you to think beyond the mundane and normal and strive to stand out, as we motivate ourselves to do the same. We write clean, polished code to give you applications tailored to fit your needs.</p>
-
-<div class="center hidden" id="real_email">
-  <p>Email me at:</p>
-  <h1><a href="mailto:calebcowen@gmail.com">dappercodes@gmail.com</a></h1>
-</div>
+<%= render partial: 'layouts/payment_form' %>

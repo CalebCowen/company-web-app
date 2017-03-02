@@ -14,23 +14,50 @@
 }
 
 #banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 1;
 }
 
 #banner::before {
   content: "";
   background-image: url('dapper_codes.jpg');
-  height: 1200px;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: .4;
   position: absolute;
+  opacity: .3;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  -webkit-animation: fadein 2s ease 1s 1 normal both, slight-blur 5s ease 3s 1 normal both;
+  animation: fadein 2s ease 1s 1 normal both, slight-blur 5s ease 3s 1 normal both;
   z-index: -1;
+}
+
+.blur {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+
+.blur-active {
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
 }
 
 #description {
@@ -66,6 +93,51 @@
   font-family: sans-serif;
 }
 
+#payment-button {
+  background:none!important;
+  border:none;
+  padding:0!important;
+  font-size: 30px;
+  font-family: sans-serif;
+  cursor:pointer;
+}
+
+#payment-button:hover{
+  text-decoration:underline;
+}
+
 body {
   background-color: #a1a5a8;
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: .3; }
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: .3; }
+}
+
+@-webkit-keyframes slight-blur {
+  0% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+  100% {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+  }
+}
+
+@keyframes slight-blur {
+  0% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+  100% {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+  }
 }

@@ -1,0 +1,75 @@
+<div class='payment-container'>
+  <div class="close">
+    <span>X</span>
+  </div>
+  <form class='modal' action="/payments" method="POST" id="payment-form">
+    <header class='header'>
+      <div class='card-type'>
+        <a class='card active'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Amex.png'>
+        </a>
+        <a class='card'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Discover.png'>
+        </a>
+        <a class='card'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Visa.png'>
+        </a>
+        <a class='card'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/MC.png'>
+        </a>
+      </div>
+    </header>
+    <div class='content'>
+      <div class='form'>
+
+        <span class="payment-errors"></span>
+        <span class="payment-success"></span>
+
+        <div class='form-row'>
+          <div class='input-group'>
+            <input placeholder='Project Name' type='text' name="project_name">
+          </div>
+        </div>
+
+        <div class='form-row'>
+          <div class='input-group'>
+            <input placeholder='Name on Card' type='text' name="customer_name" data-stripe="name">
+          </div>
+        </div>
+
+        <div class='form-row'>
+          <div class='input-group split-field-left'>
+            <input placeholder='Amount' type='number' name="amount" data-stripe="amount">
+          </div>
+
+          <div class='input-group split-field-right'>
+            <input placeholder='ZIP' maxlength='5' type='number' name="zip_code" data-stripe="address_zip">
+          </div>
+        </div>
+
+        <div class='form-row'>
+          <div class='input-group'>
+            <input size="16" maxlength="16" placeholder='Card Number' type='number' data-stripe="number">
+          </div>
+        </div>
+
+        <div class='form-row'>
+          <div class='input-group'>
+            <input type="text" maxlength="2" placeholder="Exp Month" size="2" data-stripe="exp_month" class="exp-month">
+          </div>
+          <div class='input-group'>
+            <input type="text" maxlength="2" placeholder="Exp Year" size="2" data-stripe="exp_year" class="exp-year">
+          </div>
+
+          <div class='input-group'>
+            <input size='3' placeholder='CVC' type='number' data-stripe="cvc">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <footer class='footer'>
+      <input type="submit" class="submit button" value="Submit Transaction">
+    </footer>
+  </form>
+</div>

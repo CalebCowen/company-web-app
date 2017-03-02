@@ -4,12 +4,20 @@
     <title>Dapper Codes</title>
     <%= favicon_link_tag 'tie.jpg'%>
     <%= csrf_meta_tags %>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+      Stripe.setPublishableKey("<%= ENV['stripe_publishable_key'] %>");
+    </script>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: "center top-bar flash-#{type}" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
