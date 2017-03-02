@@ -23,9 +23,11 @@ function showPaymentForm(){
 function submitPayment() {
   var $form = $('#payment-form');
   $form.submit(function(event) {
+    clearMessages($form);
     // Disable the submit button to prevent repeated clicks:
     $form.find('.submit').prop('disabled', true);
-
+    $form.find('.button').toggleClass('disabled-button');
+    $form.find('.disabled-button').val('Submitting Transaction...')
     // Request a token from Stripe:
     Stripe.card.createToken($form, stripeResponseHandler);
 
@@ -43,6 +45,7 @@ function stripeResponseHandler(status, response) {
     // Show the errors on the form:
     $form.find('.payment-errors').text(response.error.message);
     $form.find('.submit').prop('disabled', false); // Re-enable submission
+    $form.find('.button').toggleClass('disabled-button');
     console.log(response.error.message)
 
   } else { // Token was created!
@@ -52,13 +55,8 @@ function stripeResponseHandler(status, response) {
 
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
-    var validation = validateForm($form);
+    validateForm($form)
     // Submit the form:
-    if (validation) {
-      $form.get(0).submit();
-    } else {
-      $form.find('.submit').prop('disabled', false);
-    }
   }
 };
 
@@ -68,22 +66,42 @@ function validateForm(form) {
   $.get('/api/v1/projects/'+project_name, function(response) {
     if (!response) {
       form.find('.payment-errors').text("There is no project with that name.");
-      return false;
+      enableButton(form);
     } else if (amount > response.amount_owed) {
       form.find('.payment-errors').text("That payment amount is more than you owe!");
-      return false;
+      enableButton(form);
     } else {
-      form.find('.payment-success').text("Transaction has been submitted.");
-      return true;
+      form.get(0).submit();
+      $('.form').stop()
+      .slideUp()
+      .empty()
+      .append("<p class='payment-success'>Your transaction has been submitted!</p>")
+      enableButton(form);
+      form.find('.button').val('Close Form')
+      .on('click', closeForm);
+      $('.form').slideDown();
     }
   })
 }
 
+function enableButton(form) {
+  form.find('.submit').prop('disabled', false);
+  form.find('.button').toggleClass('disabled-button');
+  form.find('.button').text('Submit Transaction')
+}
+
+function clearMessages(form) {
+  form.find('.payment-errors').empty();
+  form.find('.payment-success').empty();
+}
+
 function closeForm() {
-  $('#payment-form').get(0).reset();
-  $('#payment-form').find('.submit').prop('disabled', false);
+  var $form = $('#payment-form');
   $('.blur').toggleClass('blur-active');
   $('.payment-container').animate({'marginTop': '+=1100px'}, 900, function() {
     $('.payment-container').hide();
+    clearMessages($form);
+    $form.get(0).reset();
+    enableButton($form);
   });
 }

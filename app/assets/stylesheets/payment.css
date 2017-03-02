@@ -212,10 +212,14 @@
   color: #00A6EA;
 }
 
-/*.modal .form .input-group .exp-month {
-  width: 33%
+.modal .footer .disabled-button {
+  background: grey;
 }
 
-.modal .form .input-group .exp-year {
-  width: 33%
-}*/
+.payment-success {
+  text-align: center;
+  color: green;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: helvetica;
+}
