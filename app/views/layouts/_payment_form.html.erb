@@ -43,13 +43,13 @@
           </div>
 
           <div class='input-group split-field-right'>
-            <input placeholder='ZIP' maxlength='5' type='number' name="zip_code" data-stripe="address_zip">
+            <input placeholder='ZIP' maxlength='5' type='text' pattern='[0-9]{5}' name="zip_code" data-stripe="address_zip">
           </div>
         </div>
 
         <div class='form-row'>
           <div class='input-group'>
-            <input size="16" maxlength="16" placeholder='Card Number' type='number' data-stripe="number">
+            <input maxlength="16" placeholder='Card Number' type='text' data-stripe="number">
           </div>
         </div>
 
@@ -62,7 +62,7 @@
           </div>
 
           <div class='input-group'>
-            <input size='3' placeholder='CVC' type='number' data-stripe="cvc">
+            <input maxlength='3' placeholder='CVC' type='text' data-stripe="cvc">
           </div>
         </div>
 

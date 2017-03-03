@@ -42,7 +42,7 @@
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  margin: 0 0 30px;
+  margin: 0 0 20px;
 }
 .modal .form .form-row:last-child {
   margin: 0;
@@ -91,7 +91,7 @@
   background-clip: padding-box;
   padding: 15px;
   color: #999;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -186,6 +186,7 @@
   color: #FFF;
   font-weight: 700;
   letter-spacing: 1px;
+  font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
 }
