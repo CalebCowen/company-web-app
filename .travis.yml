@@ -10,3 +10,6 @@ script:
   - bundle exec rspec spec/
 before_script:
   - RAILS_ENV=test bundle exec rails db:create
+before_install:
+  - rack update --system 2.0.0
+  - rack --version
