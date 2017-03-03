@@ -4,11 +4,21 @@ class PaymentsController < ApplicationController
     project = Project.find_by(name: params[:project_name].downcase)
     amount = (params[:amount].to_f * 100).to_i
     token = params[:stripeToken]
+
+    unless project.customer_id
+      customer = Stripe::Customer.create(
+        :email => project.contact_email,
+        :account_balance => project.amount_owed,
+        :source => token,
+      )
+      project.update_attributes(customer_id: customer.id)
+    end
+
     charge = Stripe::Charge.create(
     :amount => amount,
     :currency => "usd",
     :description => "Payment for #{params[:project_name]}",
-    :source => token
+    :customer => project.customer_id
     )
     project.payments.create(amount: amount)
     project.update_attributes(amount_owed: project.amount_owed - amount)
