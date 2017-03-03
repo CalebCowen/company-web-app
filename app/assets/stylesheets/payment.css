@@ -7,7 +7,7 @@
 
 .payment-container {
   display: block;
-  width: 480px;
+  max-width: 480px;
   margin: 40px auto;
   display: none;
   position: absolute;
@@ -27,6 +27,7 @@
   border-radius: 3px;
   background-clip: padding-box;
   overflow: hidden;
+  max-width: inherit;
 }
 .modal .form .form-row {
   display: -webkit-box;
@@ -215,6 +216,7 @@
 
 .modal .footer .disabled-button {
   background: grey;
+  cursor: text;
 }
 
 .payment-success {
