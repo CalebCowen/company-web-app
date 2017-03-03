@@ -11819,7 +11819,7 @@ return jQuery;
         };
 
         Connection.prototype.reopen = function() {
-          var error, error1;
+          var error;
           ActionCable.log("Reopening WebSocket, current state is " + (this.getState()));
           if (this.isActive()) {
             try {
@@ -12258,8 +12258,7 @@ function stripeResponseHandler(status, response) {
 
     // Show the errors on the form:
     $form.find('.payment-errors').text(response.error.message);
-    $form.find('.submit').prop('disabled', false); // Re-enable submission
-    $form.find('.button').toggleClass('disabled-button');
+    enableButton($form) // Re-enable submission
     console.log(response.error.message)
 
   } else { // Token was created!
