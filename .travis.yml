@@ -4,3 +4,7 @@ rvm:
   - jruby
 services:
   - postgresql
+script:
+  - RAILS_ENV=test bundle exec rails db:migrate
+  - bundle exec rails db:test:prepare
+  - bundle exec rspec
