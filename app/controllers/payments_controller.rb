@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
     )
     project.payments.create(amount: amount)
     project.update_attributes(amount_owed: project.amount_owed - amount)
+    project.check_status
 
     rescue Stripe::CardError => e
       body = e.json_body

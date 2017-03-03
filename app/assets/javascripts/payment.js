@@ -62,6 +62,7 @@ function stripeResponseHandler(status, response) {
 function validateForm(form) {
   var project_name = form.find('[name="project_name"]').val()
   var amount = form.find('[name="amount"]').val()
+  var formDiv;
   $.get('/api/v1/projects/'+project_name, function(response) {
     if (!response) {
       form.find('.payment-errors').text("There is no project with that name.");
@@ -71,22 +72,22 @@ function validateForm(form) {
       enableButton(form);
     } else {
       form.get(0).submit();
-      $('.form').stop()
-      .slideUp()
-      .empty()
-      .append("<p class='payment-success'>Your transaction has been submitted!</p>")
+      $('.content').stop()
+      .slideUp();
+      $('.form').hide();
+      $('.content').append("<p class='payment-success'>Your transaction has been submitted!</p>")
       enableButton(form);
       form.find('.button').val('Close Form')
       .on('click', closeForm);
-      $('.form').slideDown();
+      $('.content').slideDown();
     }
   })
 }
 
 function enableButton(form) {
   form.find('.submit').prop('disabled', false);
-  form.find('.button').toggleClass('disabled-button');
-  form.find('.button').text('Submit Transaction')
+  form.find('.button').removeClass('disabled-button');
+  form.find('.button').val('Submit Transaction')
 }
 
 function clearMessages(form) {
@@ -99,6 +100,7 @@ function closeForm() {
   $('.blur').toggleClass('blur-active');
   $('.payment-container').animate({'marginTop': '+=1100px'}, 900, function() {
     $('.payment-container').hide();
+    $('.form').show();
     clearMessages($form);
     $form.get(0).reset();
     enableButton($form);
