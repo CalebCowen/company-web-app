@@ -17,6 +17,7 @@ function showPaymentForm(){
   $( "#payment-button" ).on( "click", function() {
     $('.payment-container').show().animate({'marginTop': '-=1100px'}, 900);
     $('.blur').toggleClass('blur-active');
+    $( "#payment-button" ).prop('disabled', true);
   });
 }
 
@@ -62,7 +63,6 @@ function stripeResponseHandler(status, response) {
 function validateForm(form) {
   var project_name = form.find('[name="project_name"]').val()
   var amount = form.find('[name="amount"]').val()
-  var formDiv;
   $.get('/api/v1/projects/'+project_name, function(response) {
     if (!response) {
       form.find('.payment-errors').text("There is no project with that name.");
@@ -78,6 +78,7 @@ function validateForm(form) {
       $('.content').append("<p class='payment-success'>Your transaction has been submitted!</p>")
       enableButton(form);
       form.find('.button').val('Close Form')
+      .prop('type', 'button')
       .on('click', closeForm);
       $('.content').slideDown();
     }
@@ -103,6 +104,8 @@ function closeForm() {
     $('.form').show();
     clearMessages($form);
     $form.get(0).reset();
+    $form.find('.button').prop('type', 'submit');
+    $( "#payment-button" ).prop('disabled', false);    
     enableButton($form);
   });
 }

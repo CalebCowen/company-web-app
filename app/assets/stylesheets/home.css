@@ -106,6 +106,14 @@
   text-decoration:underline;
 }
 
+.blur-active #real_email #payment-button {
+  cursor: default;
+}
+
+.blur-active #real_email #payment-button:hover {
+  text-decoration: none;
+}
+
 body {
   background-color: #a1a5a8;
 }
