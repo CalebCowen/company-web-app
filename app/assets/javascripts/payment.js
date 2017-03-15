@@ -61,7 +61,7 @@ function stripeResponseHandler(status, response) {
 };
 
 function validateForm(form) {
-  var project_name = form.find('[name="project_name"]').val()
+  var project_name = form.find('[name="project_name"]').val().toLowerCase();
   var amount = form.find('[name="amount"]').val()
   $.get('/api/v1/projects/'+project_name, function(response) {
     if (!response) {
@@ -105,7 +105,7 @@ function closeForm() {
     clearMessages($form);
     $form.get(0).reset();
     $form.find('.button').prop('type', 'submit');
-    $( "#payment-button" ).prop('disabled', false);    
+    $( "#payment-button" ).prop('disabled', false);
     enableButton($form);
   });
 }
