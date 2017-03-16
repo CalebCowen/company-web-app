@@ -2,7 +2,8 @@ class PaymentsController < ApplicationController
 
   def create
     project = Project.find_by(name: params[:project_name].downcase)
-    amount = (params[:amount].to_f * 100).to_i
+    # amount = (params[:amount].to_f * 100).to_i
+    amount = (((params[:amount].to_f + .30) / .971) * 100).to_i
     token = params[:stripeToken]
 
     unless project.customer_id
