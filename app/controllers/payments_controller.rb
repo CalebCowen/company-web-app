@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
     unless project.customer_id
       customer = Stripe::Customer.create(
         :email => project.contact_email,
-        :account_balance => project.amount_owed,
+        :account_balance => project.amount_owed - amount,
         :source => token,
       )
       project.update_attributes(customer_id: customer.id)
