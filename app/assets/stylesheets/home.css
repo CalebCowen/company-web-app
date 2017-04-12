@@ -13,6 +13,13 @@
   padding-top: 200px;
 }
 
+#banner-subtitle {
+  font-family: sans-serif;
+  font-size: 50px;
+  letter-spacing: 55px;
+  text-indent: 55px;
+}
+
 #banner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,6 +75,7 @@
   margin: auto;
   font-family: monospace;
   font-size: 30px;
+  max-width: 700px;
 }
 
 #real_email a{
@@ -113,6 +121,11 @@
 .blur-active #real_email #payment-button:hover {
   text-decoration: none;
 }
+
+/*#ampersand {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}*/
 
 body {
   background-color: #a1a5a8;
