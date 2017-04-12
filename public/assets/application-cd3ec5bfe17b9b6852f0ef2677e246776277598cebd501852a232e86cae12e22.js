@@ -12175,35 +12175,34 @@ return jQuery;
 $(document).ready(function(){
   var $image = $('#banner');
   var $header = $('#banner-header')
-  var $contact = $('#contact')
+  var $subtitle = $('#banner-subtitle')
+  var $github = $('#links')
   var $description = $('#description')
   var $real_email = $('#real_email')
   var $fake_email = $('#fake_email')
+
 
   $header.delay(3300)
   .fadeIn(2000)
   .delay(1000)
   .animate({'marginTop': '-=200px'}, 1500);
 
-  $contact.delay(3300)
+  $subtitle.delay(3300)
   .fadeIn(2000)
-  .delay(800)
-  .animate({'marginTop': '+=90px'}, 1200)
-  .animate({'marginTop': '-=170px'}, 1100)
+  .delay(1000)
+  .animate({'marginTop': '+=150px'}, 1100)
+  .animate({'marginTop': '-=180px'}, 1500);
 
-  $('#github')
-  .delay(6000)
-  .animate({'marginLeft': '-=850'}, 1500);
+  $github.delay(3300)
+  .fadeIn(2000)
+  .delay(1000)
+  .animate({'marginTop': '+=150px'}, 1100)
+  .animate({'marginTop': '-=130px'}, 1500);
 
-  $('#linkedin')
-  .delay(6000)
-  .animate({'marginRight': '-=800', 'marginLeft': '+=800'}, 1500);
-
-  $('#definition').delay(8000)
-  .fadeIn(1500)
-
-  $fake_email.delay(6000)
-  .animate({'marginTop': '+=600'}, 1300)
+  $fake_email.delay(3300)
+  .fadeIn(2000)
+  .delay(1000)
+  .animate({'marginTop': '+=900'}, 1500)
   .fadeOut(800)
 
   $description.delay(7500)
