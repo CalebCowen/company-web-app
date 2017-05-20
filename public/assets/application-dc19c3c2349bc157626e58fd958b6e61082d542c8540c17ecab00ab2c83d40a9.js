@@ -12218,12 +12218,12 @@ $(document).ready(function(){
   $('.close').on('click', closeForm);
 
 
-  $('.card').on('click', function() {
-    $('.card').removeClass('active');
-    $(this).addClass('active');
-    $('.form').stop().slideUp();
-    $('.form').delay(300).slideDown();
-  });
+  // $('.card').on('click', function() {
+  //   $('.card').removeClass('active');
+  //   $(this).addClass('active');
+  //   $('.form').stop().slideUp();
+  //   $('.form').delay(300).slideDown();
+  // });
 });
 
 function showPaymentForm(){
